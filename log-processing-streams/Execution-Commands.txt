@@ -1,0 +1,29 @@
+Start Zookeeper
+Open terminal window
+Go to <kafka install directory>/bin - /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1/bin
+Run: ./zookeeper-server-start.sh /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1/config/zookeeper.properties
+
+Start Kafka Server
+Open terminal window
+Go to <kafka install directory>/bin - /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1/bin
+Run:./kafka-server-start.sh /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1/config/server.properties
+
+Create topics: 
+Open terminal window
+Go to directory log-processing-streams/topics
+Run: ./create-topics.sh /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1 localhost 2181
+
+Run json data generator: 
+Copy exception-records-config.json and exception-records.json from /log-processing-streams/streaming-workflows/ to
+json-data-generator-1.2.1/conf
+Open terminal window and Run: java -jar json-data-generator-1.2.1.jar exception-records-config.json
+
+Run the processor: 
+Open terminal window
+Go to directory log-processing-streams
+Run: java -jar target/log-processing-streams-0.0.1-SNAPSHOT.jar 
+
+View results
+Open terminal window
+Go to <kafka install directory>/bin - cd /Users/Mrudul/Documents/workspace-msa/kafka_2.11-0.10.2.1/bin
+Run: ./kafka-console-consumer.sh --topic exception-summary --zookeeper localhost:2181

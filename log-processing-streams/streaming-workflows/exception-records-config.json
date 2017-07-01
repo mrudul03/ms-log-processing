@@ -1,0 +1,21 @@
+{
+  "workflows": [
+    {
+      "workflowName": "exception-records",
+      "workflowFilename": "exception-records.json"
+    }
+  ],
+  "producers": [
+    {
+      "type": "kafka",
+      "broker.server": "127.0.0.1",
+      "broker.port": 9092,
+      "topic": "exceptions",
+      "flatten" :false,
+      "sync": false
+    },
+    {
+      "type": "logger"
+    }
+  ]
+}
