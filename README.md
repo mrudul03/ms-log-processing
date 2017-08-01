@@ -10,3 +10,19 @@ JWT token in the form of Authorization: xxxxx.yyyyy.zzzzz.
 The JWT is passed for any service-to-service communication so that any of the services can apply authorization along the way
 
 This framework module provides helper classes to parse the JWT and authorize a service consumer.
+
+#### Details about module classes:
+* A custom authentication filter (JsonWebTokenAuthenticationFilter) that reads the request header if it is present by extending Spring authentication filter RequestHeaderAuthenticationFilter.
+* Authentication provider (JsonWebTokenAuthenticationProvider) that reads this token, authenticates it, and converts it to our own custom Authentication object.
+* A Security configuration class (JsonWebTokenSecurityConfig)
+
+#### Usage
+The secured-accounts-service example demonstrates using security module.
+
+Secure a Microservice by adding a configuration class which extends security module JsonWebTokenSecurityConfig.
+```
+@Configuration@EnableWebSecurity@EnableGlobalMethodSecurity(prePostEnabled = true)@ComponentScan(basePackages = "com.cts.bfs.microservices.security.*")
+public class AccountsWebSecurityConfig extends JsonWebTokenSecurityConfig {
+
+```
+
