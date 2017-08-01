@@ -21,6 +21,15 @@ This framework module provides helper classes to parse the JWT and authorize a u
 #### Usage
 The secured-accounts-service example demonstrates using security module.
 
+Add a dependency of security to the REST service.
+```
+<dependency>
+    <groupId>Microservices-Framework</groupId>
+    <artifactId>security</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
 Secure a Microservice by adding a configuration class which extends security module JsonWebTokenSecurityConfig.
 ```
 @Configuration@EnableWebSecurity@EnableGlobalMethodSecurity(prePostEnabled = true)@ComponentScan(basePackages = "com.cts.bfs.microservices.security.*")
