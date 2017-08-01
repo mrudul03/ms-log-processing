@@ -11,6 +11,8 @@ The JWT is passed for service-to-service communication so the services can apply
 
 This framework module provides helper classes to parse the JWT and authorize a user.
 
+![Typical Security Workflow](MSA-Security.png)
+
 #### Details about module classes:
 * A custom authentication filter (JsonWebTokenAuthenticationFilter) that reads the request header if it is present by extending Spring authentication filter RequestHeaderAuthenticationFilter.
 * Authentication provider (JsonWebTokenAuthenticationProvider) that reads this token, authenticates it, and converts it to our own custom Authentication object.
