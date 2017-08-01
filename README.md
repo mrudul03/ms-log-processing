@@ -30,7 +30,7 @@ Add a dependency of security to the REST service.
 </dependency>
 ```
 
-Secure a Microservice by adding a configuration class which extends security module JsonWebTokenSecurityConfig.
+Secure a Microservice by adding a configuration class which extends security module class JsonWebTokenSecurityConfig.
 ```
 @Configuration@EnableWebSecurity@EnableGlobalMethodSecurity(prePostEnabled = true)@ComponentScan(basePackages = "com.cts.bfs.microservices.security.*")
 public class AccountsWebSecurityConfig extends JsonWebTokenSecurityConfig {
