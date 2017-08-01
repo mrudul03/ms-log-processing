@@ -1,15 +1,15 @@
 #### Security Module
 
-##### Security module provides helper classes for parsing JWT tokens and authorizing a service consumer.
+##### Security module provides helper classes for parsing JWT tokens and authorizing a user.
 
 A typical workflow contains a user authentication with a user name and password.
 
 On a successful user authentication, the auth server sends a JSON Web Token (JWT) to the browser. All further requests come with an HTTP header that contains this 
 JWT token in the form of Authorization: xxxxx.yyyyy.zzzzz.
 
-The JWT is passed for any service-to-service communication so that any of the services can apply authorization along the way
+The JWT is passed for service-to-service communication so the services can apply authorization.
 
-This framework module provides helper classes to parse the JWT and authorize a service consumer.
+This framework module provides helper classes to parse the JWT and authorize a user.
 
 #### Details about module classes:
 * A custom authentication filter (JsonWebTokenAuthenticationFilter) that reads the request header if it is present by extending Spring authentication filter RequestHeaderAuthenticationFilter.
